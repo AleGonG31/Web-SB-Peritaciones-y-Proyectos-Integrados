@@ -95,14 +95,26 @@ section {
 
 #services {
     background-color: var(--light-blue);
+    background-image: url('https://www.apoyoconsultoria.com/wp-content/uploads/2022/01/fondo-peritajes.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #signup {
     background-color: var(--gray-light);
+    background-image: url('https://imagecdn.123inventatuweb.com/62/24/622472a0-0248-4a05-a0f2-5cb2a5f7a46e.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #contact {
     background-color: var(--white);
+    background-image: url('https://cdn0.uncomo.com/es/posts/0/8/7/donde_buscar_los_telefonos_de_contacto_de_las_empresas_50780_0_600.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .services-container {
@@ -202,7 +214,7 @@ footer {
     color: var(--white);
     text-align: center;
     padding: 1rem;
-    margin-top: 2rem;
+    margin-top: 0rem;
 }
 
 @media (max-width: 768px) {
