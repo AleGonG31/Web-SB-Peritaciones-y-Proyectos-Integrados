@@ -109,6 +109,7 @@ section {
     padding: 4rem 2rem;
     position: relative;
     border-bottom: 5px solid var(--primary-blue);
+    scroll-margin-top: 80px;
 }
 
 #services {
