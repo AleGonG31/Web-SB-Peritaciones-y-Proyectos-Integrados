@@ -10,13 +10,13 @@
 <body>
 
     <header>
-        <div class="logo">SB Peritaciones</div>
+        <div class="logo">SB Peritaciones y Proyectos Integrados</div>
         <nav>
             <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#signup">Registrarse</a></li>
-                <li><a href="#contact">Contacto</a></li>
+      <li><a href="#home"><img src="https://static.vecteezy.com/system/resources/thumbnails/022/750/436/small_2x/3d-home-icon-free-png.png" alt="Inicio" class="nav-icon">Inicio</a></li>
+      <li><a href="#services"><img src="https://cdn-icons-png.flaticon.com/512/4281/4281062.png" alt="Servicios" class="nav-icon">Servicios</a></li>
+      <li><a href="#signup"><img src="https://img.icons8.com/m_sharp/512w/FFFFFF/user.png" alt="Registrarse" class="nav-icon">Registrarse</a></li>
+      <li><a href="#contact"><img src="https://img.icons8.com/m_rounded/512w/FFFFFF/mail.png" alt="Contacto" class="nav-icon">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -31,21 +31,21 @@
         <h2>Nuestros Servicios</h2>
         <div class="services-container">
             <div class="service-card">
-                <h3>Informe Pericial</h3>
+                <h3>Informe Pericial <img src="https://cdn-icons-png.flaticon.com/512/93/93073.png" alt="Informe" class="service-icon"></h3>
                 <p>Elaboración de informes detallados para todo tipo de siniestros.</p>
                 <span class="price">100€</span>
                 <button class="add-to-cart">Añadir al carrito</button>
                 </div>
 
                 <div class="service-card">
-                    <h3>Proyecto Técnico</h3>
+                    <h3>Proyecto Técnico <img src="https://png.pngtree.com/png-clipart/20230410/original/pngtree-project-management-line-icon-png-image_9042418.png" alt="Informe" class="service-icon"></h3>
                     <p>Diseño y ejecución de proyectos integrales.</p>
                     <span class="price">250€</span>
                     <button class="add-to-cart">Añadir al carrito</button>
                 </div>
 
                 <div class="service-card">
-                    <h3>Asesoría Especializada</h3>
+                    <h3>Asesoría Especializada <img src="https://cdn-icons-png.flaticon.com/512/9323/9323008.png" alt="Informe" class="service-icon"></h3>
                     <p>Consultoría profesional en peritaciones y normativa.</p>
                     <span class="price">80€</span>
                     <button class="add-to-cart">Añadir al carrito</button>
@@ -53,7 +53,7 @@
                 </div>
 
                 <div id="cart">
-                    <h3>Resumen del Carrito</h3>
+                    <h3>Resumen del Carrito<img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Carrito" class="cart-icon"></h3>
                     <div id="cart-summary">No hay productos en el carrito</div>
                 </div>
                 </section>
@@ -69,17 +69,24 @@
                 </section>
 
                 <section id="contact">
-                    <h2>Contacto</h2>
+                    <h2>Contacta con nosotros</h2>
                     <form id="contact-form" method="POST" action="../backend/contact.php">
                         <input type="text" name="name" placeholder="Nombre completo" required>
                         <input type="email" name="email" placeholder="Correo electrónico" required>
+                        <label for="reason"><strong>Motivo de la consulta</strong></label>
+                        <select name="reason" id="reason" required>
+                            <option value="presupuesto">Solicitud de presupuesto</option>
+                            <option value="soporte">Soporte técnico</option>
+                            <option value="asesoria">Asesoría especializada</option>
+                            <option value="otro">Otro</option>
+                        </select>
                         <textarea name="message" placeholder="Mensaje" required></textarea>
                         <button type="submit">Enviar</button>
                     </form>
                 </section>
 
                 <footer>
-                    <p>&copy; 2025 SB Peritaciones. Todos los derechos reservados.</p>
+                    <p>&copy; 2025 SB Peritaciones. Pasaje Sem 4 29620 - Torremolinos (Málaga). Todos los derechos reservados.</p>
                 </footer>
 
                 <script src="app.js"></script>

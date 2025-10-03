@@ -52,6 +52,13 @@ html {
     scroll-behavior: smooth;
 }
 
+.nav-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
 .hero {
     background-image: url('https://www.peritacionesdanielgarcia.com/wp-content/uploads/2016/08/peritaciones-en-vehiculos.jpg');
     background-size: cover;
@@ -91,6 +98,8 @@ html {
 section {
     text-align: center;
     padding: 4rem 2rem;
+    position: relative;
+    border-bottom: 5px solid var(--primary-blue);
 }
 
 #services {
@@ -139,6 +148,12 @@ section {
     
 }
 
+.service-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
 .service-card:hover {
     transform: translateY(-5px);
 }
@@ -179,6 +194,19 @@ section {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+#cart h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* espacio entre texto e icono */
+}
+
+#cart .cart-icon {
+    width: 24px;  /* tamaño del icono */
+    height: 24px;
+    object-fit: contain;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -215,6 +243,7 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: 0rem;
+    border-bottom: none;
 }
 
 @media (max-width: 768px) {
