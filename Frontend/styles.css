@@ -208,11 +208,11 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem; /* espacio entre texto e icono */
+    gap: 0.5rem;
 }
 
 #cart .cart-icon {
-    width: 24px;  /* tamaño del icono */
+    width: 24px;
     height: 24px;
     object-fit: contain;
 }
