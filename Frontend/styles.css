@@ -267,6 +267,78 @@ footer {
     }
 }
 
+button,
+.btn,
+input[type="submit"] {
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    border-radius: 60px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+button:hover,
+.btn:hover,
+input[type="submit"]:hover {
+    background-color: #0055a5;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+button:active,
+.btn:active,
+input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-cart {
+    background-color: #007b3e;
+}
+
+.add-to-cart:hover {
+    background-color: #00a44e;
+}
+
+#signup-form button,
+#contact-form button,
+#signup-form input[type="submit"],
+#contact-form input[type="submit"] {
+    background-color: #1a73e8;
+}
+
+#signup-form button:hover,
+#contact-form button:hover,
+#signup-form input[type="submit"]:hover,
+#contact-form input[type="submit"]:hover {
+    background-color: #0f5fd1;
+}
+
+.remove-item {
+    background-color: var(--light-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.remove-item:hover {
+    background-color: darkred;
+    transform: scale(1.1);
+}
 
 
 
