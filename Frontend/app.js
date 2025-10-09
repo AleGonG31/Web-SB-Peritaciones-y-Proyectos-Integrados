@@ -76,6 +76,25 @@ function updateCart() {
             cartSummary.appendChild(div);
         });
 
+        const clearBtn = document.createElement("button");
+        clearBtn.innerText = "Vaciar carrito";
+        clearBtn.classList.add("clear-cart-btn");
+        clearBtn.style.marginTop = "0.8rem";
+        clearBtn.style.padding = "0.5rem 1rem";
+        clearBtn.style.backgroundColor = "#3b82f6";
+        clearBtn.style.color = "white";
+        clearBtn.style.border = "none";
+        clearBtn.style.borderRadius = "10px";
+        clearBtn.style.cursor = "pointer";
+        clearBtn.style.transition = "background 0.3s";
+        clearBtn.addEventListener("mouseover", () => clearBtn.style.backgroundColor = "#b91c1c");
+        clearBtn.addEventListener("mouseout", () => clearBtn.style.backgroundColor = "#3b82f6");
+        clearBtn.addEventListener("click", () => {
+            cart.length = 0;
+            updateCart();
+        });
+        cartSummary.appendChild(clearBtn);
+
         const totalDiv = document.createElement("div");
         totalDiv.style.fontWeight = "bold";
         totalDiv.style.marginTop = "0.5rem";
