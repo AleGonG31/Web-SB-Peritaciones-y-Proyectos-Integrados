@@ -340,5 +340,35 @@ input[type="submit"]:active {
     transform: scale(1.1);
 }
 
+.feedback {
+    margin-top: 0.8rem;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-shadow: 0 0 1px rgba(0,0,0,0.2);
+    line-height: 1.4;
+}
+
+.feedback.error {
+    color: #d00000;
+}
+
+.feedback.success {
+    color: #008a0e;
+}
+
+.error-icon {
+    color: #d00000;
+    font-weight: 900;
+    margin-right: 6px;
+    font-size: 1.2rem;
+}
+
+.success-icon {
+    color: #008a0e;
+    font-weight: 900;
+    margin-right: 6px;
+    font-size: 1.2rem;
+}
+
 
 
