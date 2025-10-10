@@ -1,6 +1,14 @@
-window.onbeforeunload = function () {
-    window.scrollTo (0, 0);
-};
+window.history.scrollRestoration = "manual"; 
+
+window.addEventListener("beforeunload", () => {
+  window.scrollTo(0, 0);
+});
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 0); 
+});
 
 const heroSection = document.getElementById("home");
 const heroBgImg = new Image();
