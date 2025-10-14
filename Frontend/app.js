@@ -10,6 +10,12 @@ window.addEventListener("load", () => {
   }, 0); 
 });
 
+document.querySelectorAll('input[type="tel"]').forEach(input => {
+    input.addEventListener('input', () => {
+        input.value = input.value.replace(/\D/g, ''); // elimina todo lo que no sea número
+    });
+});
+
 const heroSection = document.getElementById("home");
 const heroBgImg = new Image();
 heroBgImg.src = "https://www.peritacionesdanielgarcia.com/wp-content/uploads/2016/08/peritaciones-en-vehiculos.jpg";
@@ -129,8 +135,9 @@ const signupForm = document.getElementById("signup-form");
 signupForm.addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const fullname = signupForm.fullnamme.value.trim();
+    const fullname = signupForm.fullname.value.trim();
     const email = signupForm.email.value.trim();
+    const phone = signupForm.phone.value.trim();
     const password = signupForm.password.value.trim();
     let valid = true;
     let messages = [];
@@ -144,6 +151,12 @@ signupForm.addEventListener("submit", function(e) {
     if(!emailRegex.test(email)){
         valid = false;
         messages.push("✖ Introduce un correo electrónico válido.");
+    }
+
+    const phoneRegex = /^[0-9]{9}$/;
+    if (!phoneRegex.test(phone)) {
+        valid = false;
+        messages.push("✖ Introduce un número de teléfono válido (9 dígitos).");
     }
 
     if(password.length < 6){
@@ -175,6 +188,7 @@ contactForm.addEventListener("submit", function(e){
 
     const name = contactForm.name.value.trim();
     const email = contactForm.email.value.trim();
+    const phone = contactForm.phone.value.trim();
     const message = contactForm.message.value.trim();
     const reason = contactForm.reason.value;
     let valid = true;
@@ -189,6 +203,12 @@ contactForm.addEventListener("submit", function(e){
     if(!emailRegex.test(email)){
         valid = false;
         messages.push("✖ Introduce un correo electrónico válido.");
+    }
+
+    const phoneRegex = /^[0-9]{9}$/;
+    if (!phoneRegex.test(phone)) {
+        valid = false;
+        messages.push("✖ Introduce un número de teléfono válido (9 dígitos).");
     }
 
     if(reason === ""){

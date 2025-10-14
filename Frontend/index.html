@@ -61,8 +61,9 @@
                 <section id="signup">
                     <h2>Regístrate como cliente</h2>
                     <form id="signup-form" method="POST" action="../backend/signup.php">
-                        <input type="text" name="fullnamme" placeholder="Nombre completo" required>
+                        <input type="text" name="fullname" placeholder="Nombre completo" required>
                         <input type="email" name="email" placeholder="Correo electrónico" required>
+                         <input type="tel" name="phone" placeholder="Teléfono" required>
                         <input type="password" name="password" placeholder="Contraseña" required>
                         <button type="submit">Registrarse</button>
                     </form>
@@ -73,6 +74,7 @@
                     <form id="contact-form" method="POST" action="../backend/contact.php">
                         <input type="text" name="name" placeholder="Nombre completo" required>
                         <input type="email" name="email" placeholder="Correo electrónico" required>
+                        <input type="tel" name="phone" placeholder="Teléfono" required>
                         <label for="reason"><strong>Motivo de la consulta</strong></label>
                         <select name="reason" id="reason" required>
                             <option value="" selected hidden>Seleccionar tipo de consulta</option>
