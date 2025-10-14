@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
 
 document.querySelectorAll('input[type="tel"]').forEach(input => {
     input.addEventListener('input', () => {
-        input.value = input.value.replace(/\D/g, ''); // elimina todo lo que no sea número
+        input.value = input.value.replace(/\D/g, '');
     });
 });
 
