@@ -179,6 +179,7 @@ signupForm.addEventListener("submit", function(e) {
     } else {
         feedback.style.color = "red";
         feedback.innerText = messages.join(" ");
+        feedback.innerText = messages.map(m => ` ${m}`).join("\n");
     }
 });
 
@@ -236,5 +237,6 @@ contactForm.addEventListener("submit", function(e){
     } else {
         feedback.style.color = "red";
         feedback.innerText = messages.join(" ");
+        feedback.innerText = messages.map(m => ` ${m}`).join("\n");
     }
 });
