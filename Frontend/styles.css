@@ -302,17 +302,27 @@ section h2 {
 .service-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
     background-color: var(--white);
     border-radius: 10px;
     padding: 2rem;
     width: 250px;
-    min-height: 300px;
+    min-height: 380px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-    
+    transition: transform 0.3s;   
+}
+
+.service-card .price,
+.service-card .cantidad,
+.service-card button {
+    margin-top: 10px;
+}
+
+.service-card:nth-child(2) .price,
+.service-card:nth-child(3) .price {
+    margin-top: 2rem;
 }
 
 .service-icon {

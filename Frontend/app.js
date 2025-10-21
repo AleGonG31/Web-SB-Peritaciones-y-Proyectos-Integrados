@@ -99,9 +99,19 @@ addButtons.forEach(button => {
         const card = button.closest(".service-card");
         const title = card.querySelector("h3").innerText;
         const priceText = card.querySelector(".price").innerText;
-        const price = parseFloat(priceText.replace('€',''));
+        const price = parseFloat(priceText.replace('€','').trim());
+        const cantidadInput = card.querySelector(".cantidad");
+        const cantidad = parseInt(cantidadInput.value) || 1;
 
-        cart.push({ title, price });
+        
+        const existingItem = cart.find(item => item.title === title);
+        if (existingItem) {
+            existingItem.cantidad += cantidad;
+            existingItem.totalPrecio = existingItem.cantidad * price;
+        } else {
+            cart.push({ title, price, cantidad, totalPrecio: cantidad * price });
+        }
+
         updateCart();
     });
 });
@@ -111,16 +121,21 @@ function updateCart() {
         cartSummary.innerHTML = "No hay productos en el carrito";
     } else {
         cartSummary.innerHTML = "";
-        let total = 0;
+        let totalGeneral = 0;
 
         cart.forEach((item, index) => {
-            total += item.price;
+            totalGeneral += item.totalPrecio;
             const div = document.createElement("div");
-            div.innerHTML = `${item.title} - ${item.price.toFixed(2)}€ 
-                <button class="remove-item" data-index="${index}">X</button>`;
+            div.style.marginBottom = "0.5rem";
+
+            
+            div.innerHTML = `${item.title} - ${item.cantidad} × ${item.price.toFixed(2)}€ 
+                <button class="remove-item" data-index="${index}" style="background-color:red; color:white; border:none; border-radius:50%; width:22px; height:22px; cursor:pointer;">X</button>`;
+
             cartSummary.appendChild(div);
         });
 
+        
         const clearBtn = document.createElement("button");
         clearBtn.innerText = "Vaciar carrito";
         clearBtn.classList.add("clear-cart-btn");
@@ -140,12 +155,14 @@ function updateCart() {
         });
         cartSummary.appendChild(clearBtn);
 
+        
         const totalDiv = document.createElement("div");
         totalDiv.style.fontWeight = "bold";
         totalDiv.style.marginTop = "0.5rem";
-        totalDiv.innerText = `Total: ${total.toFixed(2)}€`;
+        totalDiv.innerText = `Total: ${totalGeneral.toFixed(2)}€`;
         cartSummary.appendChild(totalDiv);
 
+        
         document.querySelectorAll(".remove-item").forEach(btn => {
             btn.addEventListener("click", () => {
                 const index = btn.getAttribute("data-index");
@@ -158,9 +175,15 @@ function updateCart() {
 
 window.addEventListener("load", () => {
     document.querySelectorAll("form").forEach(form => form.reset());
+
+    document.querySelectorAll(".cantidad").forEach(input => {
+        input.value = 1;
+    });
+    
     cart.length = 0;
     updateCart();
 });
+
 
 const signupForm = document.getElementById("signup-form");
 signupForm.addEventListener("submit", function(e) {
