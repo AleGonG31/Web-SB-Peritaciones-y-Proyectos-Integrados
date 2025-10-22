@@ -128,7 +128,6 @@ function updateCart() {
             const div = document.createElement("div");
             div.style.marginBottom = "0.5rem";
 
-            
             div.innerHTML = `${item.title} - ${item.cantidad} × ${item.price.toFixed(2)}€ 
                 <button class="remove-item" data-index="${index}" style="background-color:red; color:white; border:none; border-radius:50%; width:22px; height:22px; cursor:pointer;">X</button>`;
 
@@ -136,10 +135,18 @@ function updateCart() {
         });
 
         
+        const totalDiv = document.createElement("div");
+        totalDiv.style.fontWeight = "bold";
+        totalDiv.style.marginTop = "0.8rem";
+        totalDiv.style.marginBottom = "0.8rem";
+        totalDiv.innerText = `Total: ${totalGeneral.toFixed(2)}€`;
+        cartSummary.appendChild(totalDiv);
+
+        
         const clearBtn = document.createElement("button");
         clearBtn.innerText = "Vaciar carrito";
         clearBtn.classList.add("clear-cart-btn");
-        clearBtn.style.marginTop = "0.8rem";
+        clearBtn.style.marginTop = "0.5rem";
         clearBtn.style.padding = "0.5rem 1rem";
         clearBtn.style.backgroundColor = "#3b82f6";
         clearBtn.style.color = "white";
@@ -156,13 +163,6 @@ function updateCart() {
         cartSummary.appendChild(clearBtn);
 
         
-        const totalDiv = document.createElement("div");
-        totalDiv.style.fontWeight = "bold";
-        totalDiv.style.marginTop = "0.5rem";
-        totalDiv.innerText = `Total: ${totalGeneral.toFixed(2)}€`;
-        cartSummary.appendChild(totalDiv);
-
-        
         document.querySelectorAll(".remove-item").forEach(btn => {
             btn.addEventListener("click", () => {
                 const index = btn.getAttribute("data-index");
@@ -173,10 +173,11 @@ function updateCart() {
     }
 }
 
-window.addEventListener("load", () => {
-    document.querySelectorAll("form").forEach(form => form.reset());
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('form').forEach(form => form.reset());
 
-    document.querySelectorAll(".cantidad").forEach(input => {
+    
+    document.querySelectorAll('.cantidad').forEach(input => {
         input.value = 1;
     });
     
