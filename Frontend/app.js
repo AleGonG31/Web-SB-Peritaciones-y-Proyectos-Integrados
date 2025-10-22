@@ -126,11 +126,8 @@ function updateCart() {
         cart.forEach((item, index) => {
             totalGeneral += item.totalPrecio;
             const div = document.createElement("div");
-            div.style.marginBottom = "0.5rem";
-
-            div.innerHTML = `${item.title} - ${item.cantidad} × ${item.price.toFixed(2)}€ 
-                <button class="remove-item" data-index="${index}" style="background-color:red; color:white; border:none; border-radius:50%; width:22px; height:22px; cursor:pointer;">X</button>`;
-
+            div.innerHTML = `${item.title} (x${item.cantidad}) - ${item.totalPrecio.toFixed(2)}€ 
+                <button class="remove-item" data-index="${index}">X</button>`;
             cartSummary.appendChild(div);
         });
 
@@ -138,29 +135,91 @@ function updateCart() {
         const totalDiv = document.createElement("div");
         totalDiv.style.fontWeight = "bold";
         totalDiv.style.marginTop = "0.8rem";
-        totalDiv.style.marginBottom = "0.8rem";
         totalDiv.innerText = `Total: ${totalGeneral.toFixed(2)}€`;
         cartSummary.appendChild(totalDiv);
 
         
+        const buttonContainer = document.createElement("div");
+        buttonContainer.style.display = "flex";
+        buttonContainer.style.justifyContent = "center";
+        buttonContainer.style.gap = "1rem";
+        buttonContainer.style.marginTop = "1rem";
+
+        
+        const buyBtn = document.createElement("button");
+        buyBtn.innerText = "Comprar";
+        Object.assign(buyBtn.style, {
+            padding: "0.5rem 1rem",
+            backgroundColor: "#3b82f6",
+            color: "white",
+            border: "none",
+            borderRadius: "10px",
+            cursor: "pointer",
+            transition: "background 0.3s",
+            fontSize: "1rem"
+        });
+        buyBtn.addEventListener("mouseover", () => buyBtn.style.backgroundColor = "#22c55e");
+        buyBtn.addEventListener("mouseout", () => buyBtn.style.backgroundColor = "#3b82f6");
+
+        
         const clearBtn = document.createElement("button");
         clearBtn.innerText = "Vaciar carrito";
-        clearBtn.classList.add("clear-cart-btn");
-        clearBtn.style.marginTop = "0.5rem";
-        clearBtn.style.padding = "0.5rem 1rem";
-        clearBtn.style.backgroundColor = "#3b82f6";
-        clearBtn.style.color = "white";
-        clearBtn.style.border = "none";
-        clearBtn.style.borderRadius = "10px";
-        clearBtn.style.cursor = "pointer";
-        clearBtn.style.transition = "background 0.3s";
+        Object.assign(clearBtn.style, {
+            padding: "0.5rem 1rem",
+            backgroundColor: "#3b82f6",
+            color: "white",
+            border: "none",
+            borderRadius: "10px",
+            cursor: "pointer",
+            transition: "background 0.3s",
+            fontSize: "1rem"
+        });
         clearBtn.addEventListener("mouseover", () => clearBtn.style.backgroundColor = "#b91c1c");
         clearBtn.addEventListener("mouseout", () => clearBtn.style.backgroundColor = "#3b82f6");
         clearBtn.addEventListener("click", () => {
             cart.length = 0;
             updateCart();
         });
-        cartSummary.appendChild(clearBtn);
+
+        
+        buttonContainer.appendChild(buyBtn);
+        buttonContainer.appendChild(clearBtn);
+        cartSummary.appendChild(buttonContainer);
+
+        
+        buyBtn.addEventListener("click", () => {
+            const registroSection = document.getElementById("signup");
+            if (registroSection) {
+                registroSection.scrollIntoView({ behavior: "smooth" });
+
+                
+                const existingMessage = document.getElementById("registro-aviso");
+                if (existingMessage) existingMessage.remove();
+
+                
+                const aviso = document.createElement("div");
+                aviso.id = "registro-aviso";
+                aviso.innerText = "⚠️ Para comprar servicios, primero debe registrarse como cliente, rellene correctamente los campos que se muestran a continuación.";
+                Object.assign(aviso.style, {
+                    backgroundColor: "#ffffffff",
+                    color: "#ff9100ff",
+                    padding: "10px 16px",
+                    borderRadius: "10px",
+                    margin: "0 auto 1rem auto",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+                });
+
+                
+                const tituloRegistro = registroSection.querySelector("h2");
+                if (tituloRegistro) {
+                    registroSection.insertBefore(aviso, tituloRegistro);
+                } else {
+                    registroSection.prepend(aviso);
+                }
+            }
+        });
 
         
         document.querySelectorAll(".remove-item").forEach(btn => {
