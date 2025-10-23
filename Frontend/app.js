@@ -258,24 +258,24 @@ signupForm.addEventListener("submit", function(e) {
 
     if(fullname.length < 3){
         valid = false;
-        messages.push("✖ El nombre debe tener al menos 3 caracteres.");
+        messages.push("❌ El nombre debe tener al menos 3 caracteres.");
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!emailRegex.test(email)){
         valid = false;
-        messages.push("✖ Introduce un correo electrónico válido.");
+        messages.push("❌ Introduce un correo electrónico válido.");
     }
 
     const phoneRegex = /^[0-9]{9}$/;
     if (!phoneRegex.test(phone)) {
         valid = false;
-        messages.push("✖ Introduce un número de teléfono válido (9 dígitos).");
+        messages.push("❌ Introduce un número de teléfono válido (9 dígitos).");
     }
 
     if(password.length < 6){
         valid = false;
-        messages.push("✖ La contraseña debe tener al menos 6 caracteres.");
+        messages.push("❌ La contraseña debe tener al menos 6 caracteres.");
     }
 
     let feedback = signupForm.querySelector(".feedback");
@@ -288,7 +288,7 @@ signupForm.addEventListener("submit", function(e) {
 
     if(valid){
         feedback.style.color = "green";
-        feedback.innerText = "Te has registrado correctamente ✔.";
+        feedback.innerText = "Te has registrado correctamente ✅.";
         signupForm.reset();
     } else {
         feedback.style.color = "red";
@@ -311,29 +311,29 @@ contactForm.addEventListener("submit", function(e){
 
     if(name.length < 3){
         valid = false;
-        messages.push("✖ El nombre debe tener al menos 3 caracteres.");
+        messages.push("❌ El nombre debe tener al menos 3 caracteres.");
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!emailRegex.test(email)){
         valid = false;
-        messages.push("✖ Introduce un correo electrónico válido.");
+        messages.push("❌ Introduce un correo electrónico válido.");
     }
 
     const phoneRegex = /^[0-9]{9}$/;
     if (!phoneRegex.test(phone)) {
         valid = false;
-        messages.push("✖ Introduce un número de teléfono válido (9 dígitos).");
+        messages.push("❌ Introduce un número de teléfono válido (9 dígitos).");
     }
 
     if(reason === ""){
         valid = false;
-        messages.push("✖ Selecciona un motivo de consulta.");
+        messages.push("❌ Selecciona un motivo de consulta.");
     }
 
     if(message.length < 5){
         valid = false;
-        messages.push("✖ El mensaje debe tener al menos 5 caracteres.");
+        messages.push("❌ El mensaje debe tener al menos 5 caracteres.");
     }
 
     let feedback = contactForm.querySelector(".feedback");
@@ -346,7 +346,7 @@ contactForm.addEventListener("submit", function(e){
 
     if(valid){
         feedback.style.color = "green";
-        feedback.innerText = "Formulario enviado con éxito, nos pondremos en contacto con usted lo antes posible ✔.";
+        feedback.innerText = "Formulario enviado con éxito, nos pondremos en contacto con usted lo antes posible ✅.";
         contactForm.reset();
     } else {
         feedback.style.color = "red";
