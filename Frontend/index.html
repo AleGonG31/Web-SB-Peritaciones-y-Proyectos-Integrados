@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SB Peritaciones y Proyectos Integrados</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -100,10 +101,26 @@
                 <section id="signup">
                     <h2>Regístrate como cliente</h2>
                     <form id="signup-form" method="POST" action="../backend/signup.php">
+
+                        <div class="input-icon">
+                          <i class="fa-solid fa-user"></i>
                         <input type="text" name="fullname" placeholder="Nombre completo" required>
+                        </div>
+
+                        <div class="input-icon">
+                          <i class="fa-solid fa-envelope"></i>
                         <input type="email" name="email" placeholder="Correo electrónico" required>
+                        </div>
+
+                        <div class="input-icon">
+                          <i class="fa-solid fa-phone"></i>
                          <input type="tel" name="phone" placeholder="Teléfono" required>
+                         </div>
+
+                        <div class="input-icon">
+                          <i class="fa-solid fa-lock"></i>
                         <input type="password" name="password" placeholder="Contraseña" required>
+                        </div>
                         <button type="submit">Registrarse</button>
                     </form>
                 </section>
@@ -111,10 +128,25 @@
                 <section id="contact">
                     <h2>Contacta con nosotros</h2>
                     <form id="contact-form" method="POST" action="../backend/contact.php">
+                        <div class="input-icon">
+                          <i class="fa-solid fa-user"></i>
                         <input type="text" name="name" placeholder="Nombre completo" required>
+                        </div>
+
+                        <div class="input-icon">
+                          <i class="fa-solid fa-envelope"></i>
                         <input type="email" name="email" placeholder="Correo electrónico" required>
+                        </div>
+
+                        <div class="input-icon">
+                          <i class="fa-solid fa-phone"></i>
                         <input type="tel" name="phone" placeholder="Teléfono" required>
+                        </div>
+
+                        
                         <label for="reason"><strong>Motivo de la consulta</strong></label>
+                        <div class="input-icon">
+                          <i class="fa-solid fa-list"></i>
                         <select name="reason" id="reason" required>
                             <option value="" selected hidden>Seleccionar tipo de consulta</option>
                             <option value="presupuesto">Solicitud de presupuesto</option>
@@ -122,7 +154,12 @@
                             <option value="asesoria">Asesoría especializada</option>
                             <option value="otro">Otro</option>
                         </select>
+                        </div>
+
+                        <div class="input-icon textarea-icon">
+                          <i class="fa-solid fa-comment"></i>
                         <textarea name="message" placeholder="Mensaje" required></textarea>
+                        </div>
                         <button type="submit">Enviar</button>
                     </form>
                 </section>

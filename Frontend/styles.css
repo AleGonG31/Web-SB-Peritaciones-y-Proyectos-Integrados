@@ -534,6 +534,43 @@ input[type="submit"]:active {
     font-size: 1.2rem;
 }
 
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 10px;
+  color: #555;
+  font-size: 1rem;
+}
+
+.input-icon input,
+.input-icon select,
+.input-icon textarea {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.textarea-icon i {
+  top: 10px;
+  align-self: flex-start;
+}
+
+.input-icon input:focus,
+.input-icon select:focus,
+.input-icon textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 3px #007bff;
+}
+
 @media (max-width: 768px) {
     .services-container {
         flex-direction: column;
