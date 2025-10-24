@@ -314,6 +314,36 @@ section h2 {
     transition: transform 0.3s;   
 }
 
+.cantidad {
+    width: 70px;
+    height: 38px;
+    border: 2px solid #3b82f6; 
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+    color: #1e3a8a;
+    background-color: #e0f2fe; 
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.cantidad:hover,
+.cantidad:focus {
+    border-color: #1d4ed8; 
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+    background-color: #dbeafe;
+}
+
+
+.cantidad::-webkit-inner-spin-button,
+.cantidad::-webkit-outer-spin-button {
+    width: 18px;
+    height: 18px;
+    background-color: #3b82f6;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 .service-card .price,
 .service-card .cantidad,
 .service-card button {
@@ -581,8 +611,3 @@ input[type="submit"]:active {
         gap: 1rem;
     }
 }
-
-
-
-
-
