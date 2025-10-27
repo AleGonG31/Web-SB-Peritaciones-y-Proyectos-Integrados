@@ -92,6 +92,11 @@ dots.forEach((dot, i) => {
     });
 });
 
+setInterval(() => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}, 5000);
+
 
 const cart = [];
 const cartSummary = document.getElementById("cart-summary");
