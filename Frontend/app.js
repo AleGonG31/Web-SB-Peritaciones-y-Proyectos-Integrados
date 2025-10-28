@@ -362,3 +362,40 @@ contactForm.addEventListener("submit", function(e){
         feedback.innerText = messages.map(m => ` ${m}`).join("\n");
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  const signupSection = document.querySelector("#signup");
+  const contactSection = document.querySelector("#contact");
+
+  if (signupSection) {
+    signupSection.classList.add("hidden-section", "hidden-left");
+    observer.observe(signupSection);
+  }
+  if (contactSection) {
+    contactSection.classList.add("hidden-section", "hidden-right");
+    observer.observe(contactSection);
+  }
+
+  document.querySelectorAll("header nav a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const id = link.getAttribute("href").substring(1);
+      const target = document.getElementById(id);
+      
+      if (target && target.classList.contains("hidden-section")) {
+        setTimeout(() => target.classList.add("show"), 250);
+      }
+    });
+  });
+});

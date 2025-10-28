@@ -61,6 +61,15 @@ html {
     scroll-behavior: smooth;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 .nav-icon {
     width: 18px;
     height: 18px;
@@ -148,6 +157,26 @@ section h2 {
     border-radius: 6px;
     margin-bottom: 2rem;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+.hidden-section {
+    opacity: 0;
+    transform: translateX(60px); 
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hidden-left {
+    transform: translateX(-80px); 
+}
+
+.hidden-right {
+  transform: translateX(80px);
+}
+
+.show {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
 }
 
 .about-container {
@@ -294,7 +323,7 @@ section h2 {
 .services-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
     justify-content: center;
     margin-top: 2rem;
 }
@@ -311,7 +340,9 @@ section h2 {
     width: 250px;
     min-height: 380px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;   
+    transition: transform 0.3s; 
+    min-width: 0;
+    box-sizing: border-box;  
 }
 
 .cantidad {
@@ -574,7 +605,7 @@ input[type="submit"]:active {
 .input-icon i {
   position: absolute;
   left: 10px;
-  color: #555;
+  color: #3b82f6;
   font-size: 1rem;
 }
 
