@@ -266,7 +266,7 @@ section h2 {
 }
 
 .dot.active {
-    background-color: #717171;
+    background-color: #3b82f6;
 }
 
 @keyframes fade {
@@ -335,11 +335,13 @@ section h2 {
     align-items: center;
     text-align: center;
     background-color: var(--white);
+    border: 3px solid #1e3a8a;
     border-radius: 10px;
     padding: 2rem;
     width: 250px;
     min-height: 380px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
     transition: transform 0.3s; 
     min-width: 0;
     box-sizing: border-box;  
@@ -605,7 +607,7 @@ input[type="submit"]:active {
 .input-icon i {
   position: absolute;
   left: 10px;
-  color: #3b82f6;
+  color: #1e3a8a;
   font-size: 1rem;
 }
 
