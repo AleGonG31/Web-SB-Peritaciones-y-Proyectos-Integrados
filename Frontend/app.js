@@ -216,7 +216,7 @@ function updateCart() {
                     margin: "0 auto 1rem auto",
                     fontWeight: "bold",
                     textAlign: "center",
-                    boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+                    boxShadow: "0 4px 6px rgba(255, 166, 0, 1)",
                 });
 
                 
