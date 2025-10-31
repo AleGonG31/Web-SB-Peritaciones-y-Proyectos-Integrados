@@ -272,13 +272,13 @@ signupForm.addEventListener("submit", function(e) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!emailRegex.test(email)){
         valid = false;
-        messages.push("❌ Introduce un correo electrónico válido.");
+        messages.push("❌ Introduzca un correo electrónico válido.");
     }
 
     const phoneRegex = /^[0-9]{9}$/;
     if (!phoneRegex.test(phone)) {
         valid = false;
-        messages.push("❌ Introduce un número de teléfono válido (9 dígitos).");
+        messages.push("❌ Introduzca un número de teléfono válido (9 dígitos).");
     }
 
     if(password.length < 6){
@@ -296,7 +296,7 @@ signupForm.addEventListener("submit", function(e) {
 
     if(valid){
         feedback.style.color = "green";
-        feedback.innerText = "Te has registrado correctamente ✅.";
+        feedback.innerText = "Se ha registrado correctamente ✅.";
         signupForm.reset();
     } else {
         feedback.style.color = "red";
@@ -325,18 +325,18 @@ contactForm.addEventListener("submit", function(e){
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!emailRegex.test(email)){
         valid = false;
-        messages.push("❌ Introduce un correo electrónico válido.");
+        messages.push("❌ Introduzca un correo electrónico válido.");
     }
 
     const phoneRegex = /^[0-9]{9}$/;
     if (!phoneRegex.test(phone)) {
         valid = false;
-        messages.push("❌ Introduce un número de teléfono válido (9 dígitos).");
+        messages.push("❌ Introduzca un número de teléfono válido (9 dígitos).");
     }
 
     if(reason === ""){
         valid = false;
-        messages.push("❌ Selecciona un motivo de consulta.");
+        messages.push("❌ Seleccione un motivo de consulta.");
     }
 
     if(message.length < 5){
