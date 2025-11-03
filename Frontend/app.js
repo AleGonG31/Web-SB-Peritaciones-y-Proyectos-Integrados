@@ -399,3 +399,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+  const denyBtn = document.getElementById("deny-cookies");
+
+  // Si aún no hay preferencia guardada, mostrar el banner
+  if (!localStorage.getItem("cookieChoice")) {
+    banner.style.display = "block";
+  }
+
+  acceptBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieChoice", "accepted");
+    banner.style.display = "none";
+  });
+
+  denyBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieChoice", "denied");
+    banner.style.display = "none";
+  });
+});
