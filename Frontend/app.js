@@ -22,8 +22,14 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
 document.addEventListener("DOMContentLoaded", () => {
   const video = document.getElementById("background-video");
   if (video) {
-    video.addEventListener("canplay", () => {
+    video.play().then(() => {
       video.classList.add("loaded");
+    }).catch(() => {
+      
+      video.addEventListener("loadeddata", () => {
+        video.play();
+        video.classList.add("loaded");
+      });
     });
   }
 });
