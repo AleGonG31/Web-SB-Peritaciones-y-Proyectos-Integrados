@@ -19,6 +19,15 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("background-video");
+  if (video) {
+    video.addEventListener("canplay", () => {
+      video.classList.add("loaded");
+    });
+  }
+});
+
 const heroSection = document.getElementById("home");
 const heroBgImg = new Image();
 heroBgImg.src = "https://www.peritacionesdanielgarcia.com/wp-content/uploads/2016/08/peritaciones-en-vehiculos.jpg";
@@ -405,7 +414,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const acceptBtn = document.getElementById("accept-cookies");
   const denyBtn = document.getElementById("deny-cookies");
 
-  // Si aún no hay preferencia guardada, mostrar el banner
+  
   if (!localStorage.getItem("cookieChoice")) {
     banner.style.display = "block";
   }
@@ -427,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeX = document.querySelector(".close-popup");
   const closeBtn = document.getElementById("close-cookies-popup");
 
-  // Mostrar pop-up con animación de entrada
+  
   if (cookiesLink && popup) {
     cookiesLink.addEventListener("click", () => {
       popup.style.display = "flex";
@@ -435,13 +444,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Función para cerrar con animación de salida
+  
   const closePopup = () => {
     const content = popup.querySelector(".cookies-popup-content");
     content.style.animation = "fadeOut 0.4s ease";
     setTimeout(() => {
       popup.style.display = "none";
-    }, 400); // tiempo igual a la duración de fadeOut
+    }, 400); 
   };
 
   [closeX, closeBtn].forEach(el => {
