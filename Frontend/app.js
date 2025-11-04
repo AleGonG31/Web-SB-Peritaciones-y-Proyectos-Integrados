@@ -420,3 +420,31 @@ document.addEventListener("DOMContentLoaded", () => {
     banner.style.display = "none";
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cookiesLink = document.getElementById("cookies-link");
+  const popup = document.getElementById("cookies-popup");
+  const closeX = document.querySelector(".close-popup");
+  const closeBtn = document.getElementById("close-cookies-popup");
+
+  // Mostrar pop-up con animación de entrada
+  if (cookiesLink && popup) {
+    cookiesLink.addEventListener("click", () => {
+      popup.style.display = "flex";
+      popup.querySelector(".cookies-popup-content").style.animation = "fadeIn 0.4s ease";
+    });
+  }
+
+  // Función para cerrar con animación de salida
+  const closePopup = () => {
+    const content = popup.querySelector(".cookies-popup-content");
+    content.style.animation = "fadeOut 0.4s ease";
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 400); // tiempo igual a la duración de fadeOut
+  };
+
+  [closeX, closeBtn].forEach(el => {
+    el.addEventListener("click", closePopup);
+  });
+});
