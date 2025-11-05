@@ -463,3 +463,30 @@ document.addEventListener("DOMContentLoaded", () => {
     el.addEventListener("click", closePopup);
   });
 });
+
+const privacyPopup = document.getElementById("privacy-popup");
+const privacyLink = document.getElementById("privacy-link");
+const closePrivacyX = document.getElementById("close-privacy");
+const closePrivacyBottom = document.getElementById("close-privacy-bottom");
+
+if (privacyLink && privacyPopup) {
+  const showPrivacy = () => {
+    privacyPopup.scrollTo(0, 0);
+    
+    privacyPopup.style.display = "flex";
+    privacyPopup.classList.add("show");
+  };
+
+  const hidePrivacy = () => {
+    privacyPopup.classList.remove("show");
+    privacyPopup.classList.add("fadeOut");
+    setTimeout(() => {
+      privacyPopup.style.display = "none";
+      privacyPopup.classList.remove("fadeOut");
+    }, 400);
+  };
+
+  privacyLink.addEventListener("click", showPrivacy);
+  closePrivacyX.addEventListener("click", hidePrivacy);
+  closePrivacyBottom.addEventListener("click", hidePrivacy);
+}
