@@ -490,3 +490,62 @@ if (privacyLink && privacyPopup) {
   closePrivacyX.addEventListener("click", hidePrivacy);
   closePrivacyBottom.addEventListener("click", hidePrivacy);
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  
+  const cookiesPopup = document.getElementById("cookies-popup");
+  const cookiesLinkBanner = document.getElementById("cookies-link");
+  const cookiesLinkFooter = document.getElementById("footer-cookies-link");
+  const closeCookiesX = document.getElementById("close-cookies");
+  const closeCookiesBottom = document.getElementById("close-cookies-bottom");
+
+  const showCookies = () => {
+    if (!cookiesPopup) return;
+    const box = cookiesPopup.querySelector(".popup-box");
+    cookiesPopup.style.display = "flex";
+    cookiesPopup.classList.add("show");
+    if (box) box.scrollTop = 0;
+  };
+
+  const hideCookies = () => {
+    if (!cookiesPopup) return;
+    cookiesPopup.classList.remove("show");
+    cookiesPopup.classList.add("fadeOut");
+    setTimeout(() => {
+      cookiesPopup.style.display = "none";
+      cookiesPopup.classList.remove("fadeOut");
+    }, 300);
+  };
+
+  [cookiesLinkBanner, cookiesLinkFooter].forEach(el => el?.addEventListener("click", showCookies));
+  [closeCookiesX, closeCookiesBottom].forEach(el => el?.addEventListener("click", hideCookies));
+
+  
+  const privacyPopup = document.getElementById("privacy-popup");
+  const privacyLinkBanner = document.getElementById("privacy-link");
+  const privacyLinkFooter = document.getElementById("footer-privacy-link");
+  const closePrivacyX = document.getElementById("close-privacy");
+  const closePrivacyBottom = document.getElementById("close-privacy-bottom");
+
+  const showPrivacy = () => {
+    if (!privacyPopup) return;
+    const box = privacyPopup.querySelector(".popup-box");
+    privacyPopup.style.display = "flex";
+    privacyPopup.classList.add("show");
+    if (box) box.scrollTop = 0;
+  };
+
+  const hidePrivacy = () => {
+    if (!privacyPopup) return;
+    privacyPopup.classList.remove("show");
+    privacyPopup.classList.add("fadeOut");
+    setTimeout(() => {
+      privacyPopup.style.display = "none";
+      privacyPopup.classList.remove("fadeOut");
+    }, 300);
+  };
+
+  [privacyLinkBanner, privacyLinkFooter].forEach(el => el?.addEventListener("click", showPrivacy));
+  [closePrivacyX, closePrivacyBottom].forEach(el => el?.addEventListener("click", hidePrivacy));
+});
