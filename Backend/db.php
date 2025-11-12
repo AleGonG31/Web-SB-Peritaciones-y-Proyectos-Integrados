@@ -7,7 +7,6 @@ $dbname = "sb_peritaciones";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("❌ Error de conexión a la base de datos: " . $conn->connect_error);
 }
-echo "Connected successfully";
 ?>

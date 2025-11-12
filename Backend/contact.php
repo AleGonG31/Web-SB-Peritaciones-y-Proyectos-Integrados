@@ -2,19 +2,19 @@
 include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['name'];
+    $name = $_POST['name'];
     $email = $_POST['email'];
-    $telefono = $_POST['phone'];
-    $motivo = $_POST['reason'];
-    $mensaje = $_POST['message'];
+    $phone = $_POST['phone'];
+    $reason = $_POST['reason'];
+    $message = $_POST['message'];
 
-    $sql = "INSERT INTO contactos (nombre, email, telefono, motivo, mensaje)
-            VALUES ('$nombre', '$email', '$telefono', '$motivo', '$mensaje')";
+    $sql = "INSERT INTO contactos (name, email, phone, reason, message)
+            VALUES ('$name', '$email', '$phone', '$reason', '$message')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Mensaje guardado correctamente ✅";
+        echo "✅ Mensaje guardado correctamente.";
     } else {
-        echo "Error: " . $conn->error;
+        echo "❌ Error al guardar el mensaje: " . $conn->error;
     }
 
     $conn->close();

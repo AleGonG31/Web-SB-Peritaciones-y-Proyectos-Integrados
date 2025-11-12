@@ -2,18 +2,18 @@
 include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['fullname'];
+    $fullname = $_POST['fullname'];
     $email = $_POST['email'];
-    $telefono = $_POST['phone'];
+    $phone = $_POST['phone'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO clientes (nombre, email, telefono, password)
-            VALUES ('$nombre', '$email', '$telefono', '$password')";
+    $sql = "INSERT INTO clientes (fullname, email, phone, password)
+            VALUES ('$fullname', '$email', '$phone', '$password')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Registro guardado correctamente ✅";
+        echo "✅ Registro guardado correctamente.";
     } else {
-        echo "Error: " . $conn->error;
+        echo "❌ Error al guardar el registro: " . $conn->error;
     }
 
     $conn->close();

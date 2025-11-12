@@ -82,9 +82,9 @@ $contactos = $conn->query("SELECT * FROM contactos ORDER BY fecha_envio DESC");
       <?php while ($row = $clientes->fetch_assoc()): ?>
         <tr>
           <td><?= $row['id'] ?></td>
-          <td><?= htmlspecialchars($row['nombre']) ?></td>
+          <td><?= htmlspecialchars($row['fullname']) ?></td>
           <td><?= htmlspecialchars($row['email']) ?></td>
-          <td><?= htmlspecialchars($row['telefono']) ?></td>
+          <td><?= htmlspecialchars($row['phone']) ?></td>
           <td><?= htmlspecialchars(substr($row['password'], 0, 25)) ?>...</td>
           <td><?= $row['fecha_registro'] ?></td>
         </tr>
@@ -111,11 +111,11 @@ $contactos = $conn->query("SELECT * FROM contactos ORDER BY fecha_envio DESC");
       <?php while ($row = $contactos->fetch_assoc()): ?>
         <tr>
           <td><?= $row['id'] ?></td>
-          <td><?= htmlspecialchars($row['nombre']) ?></td>
+          <td><?= htmlspecialchars($row['name']) ?></td>
           <td><?= htmlspecialchars($row['email']) ?></td>
-          <td><?= htmlspecialchars($row['telefono']) ?></td>
-          <td><?= htmlspecialchars($row['motivo']) ?></td>
-          <td><?= nl2br(htmlspecialchars($row['mensaje'])) ?></td>
+          <td><?= htmlspecialchars($row['phone']) ?></td>
+          <td><?= htmlspecialchars($row['reason']) ?></td>
+          <td><?= nl2br(htmlspecialchars($row['message'])) ?></td>
           <td><?= $row['fecha_envio'] ?></td>
         </tr>
       <?php endwhile; ?>
