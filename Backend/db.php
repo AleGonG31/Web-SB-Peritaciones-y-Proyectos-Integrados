@@ -4,9 +4,10 @@ $username = "root";
 $password = "";
 $dbname = "sb_peritaciones";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("❌ Error de conexión a la base de datos: " . $conn->connect_error);
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
 }
+echo "Connected successfully";
 ?>
