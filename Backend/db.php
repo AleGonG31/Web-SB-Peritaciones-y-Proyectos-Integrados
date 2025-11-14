@@ -1,13 +1,17 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sb_peritaciones";
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$server = "localhost";
+$user = "root";
+$pass = "";
+$db = "sb_peritaciones";
 
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected successfully";
+$conexion = new mysqli($server, $user, $pass, $db);
+
+if ($conexion->connect_errno) {
+  die("Conexion Fallida" . $conexion->connect_errno );
+
+} else {
+echo "Conectado";
+} 
+
 ?>
