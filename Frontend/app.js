@@ -549,3 +549,70 @@ document.addEventListener("DOMContentLoaded", () => {
   [privacyLinkBanner, privacyLinkFooter].forEach(el => el?.addEventListener("click", showPrivacy));
   [closePrivacyX, closePrivacyBottom].forEach(el => el?.addEventListener("click", hidePrivacy));
 });
+
+
+(function() {
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+  const denyBtn = document.getElementById("deny-cookies");
+
+  if (!banner || !acceptBtn || !denyBtn) return;
+
+ 
+  function getCookieChoice() {
+    try {
+      const raw = localStorage.getItem("cookieChoiceWithExpiry");
+      if (!raw) return null;
+      const obj = JSON.parse(raw);
+      if (!obj.choice || !obj.expires) return null;
+      const expires = new Date(obj.expires);
+      if (isNaN(expires)) return null;
+      if (Date.now() > expires.getTime()) {
+        
+        localStorage.removeItem("cookieChoiceWithExpiry");
+        return null;
+      }
+      return obj.choice;
+    } catch (e) {
+      console.error("Error leyendo cookieChoiceWithExpiry:", e);
+      return null;
+    }
+  }
+
+ 
+  function setCookieChoice(choice, expiresDate) {
+    const payload = {
+      choice,
+      expires: expiresDate.toISOString()
+    };
+    localStorage.setItem("cookieChoiceWithExpiry", JSON.stringify(payload));
+  }
+
+  
+  function refreshBannerVisibility() {
+    const choice = getCookieChoice();
+    if (choice) {
+      banner.style.display = "none";
+    } else {
+      banner.style.display = "block";
+    }
+  }
+
+  
+  acceptBtn.addEventListener("click", () => {
+   
+    const expiresDate = new Date(2025, 10, 18, 11, 30); 
+    setCookieChoice("accepted", expiresDate);
+    banner.style.display = "none";
+  });
+
+  denyBtn.addEventListener("click", () => {
+    
+    const expiresDate = new Date(2025, 10, 18, 11, 30); 
+    setCookieChoice("denied", expiresDate);
+    banner.style.display = "none";
+  });
+
+ 
+  refreshBannerVisibility();
+})();
