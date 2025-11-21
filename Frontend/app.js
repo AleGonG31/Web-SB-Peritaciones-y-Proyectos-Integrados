@@ -34,6 +34,52 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("background-video");
+  const hero = document.getElementById("home");
+
+  if (!video || !hero) return;
+
+  video.style.cursor = "pointer";
+
+  const toggleVideo = async () => {
+    try {
+      if (video.paused || video.ended) {
+        await video.play();
+      } else {
+        video.pause();
+      }
+    } catch (err) {
+      
+      console.warn("toggleVideo: no se pudo reproducir/pausar:", err);
+    }
+  };
+
+  
+  video.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleVideo();
+  });
+
+ 
+  hero.addEventListener("click", (e) => {
+   
+    if (e.target.closest("a, button, input, textarea, select, .prev, .next, .dot, .add-to-cart")) return;
+    
+    if (e.target.closest(".about, .info-box, .slideshow-container, .services-container")) return;
+    toggleVideo();
+  });
+
+  
+  video.addEventListener("ended", () => {
+    
+    video.currentTime = 0;
+    video.play().catch(()=>{});
+  });
+});
+
+
 const heroSection = document.getElementById("home");
 const heroBgImg = new Image();
 heroBgImg.src = "https://www.peritacionesdanielgarcia.com/wp-content/uploads/2016/08/peritaciones-en-vehiculos.jpg";
@@ -601,14 +647,14 @@ document.addEventListener("DOMContentLoaded", () => {
   
   acceptBtn.addEventListener("click", () => {
    
-    const expiresDate = new Date(2025, 10, 18, 11, 30); 
+    const expiresDate = new Date(2025, 10, 21, 11, 10); 
     setCookieChoice("accepted", expiresDate);
     banner.style.display = "none";
   });
 
   denyBtn.addEventListener("click", () => {
     
-    const expiresDate = new Date(2025, 10, 18, 11, 30); 
+    const expiresDate = new Date(2025, 10, 21, 11, 10); 
     setCookieChoice("denied", expiresDate);
     banner.style.display = "none";
   });
