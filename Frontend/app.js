@@ -38,44 +38,49 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const video = document.getElementById("background-video");
   const hero = document.getElementById("home");
+  const icon = document.getElementById("video-status-icon");
+  let iconTimeout = null;
 
-  if (!video || !hero) return;
+  if (!video || !hero || !icon) return;
 
-  video.style.cursor = "pointer";
+  function showVideoIcon(type) {
+    
+    icon.innerText = type === "play" ? "▶️" : "⏸️";
 
+    icon.style.opacity = 1;
+
+    
+    if (iconTimeout) clearTimeout(iconTimeout);
+
+    iconTimeout = setTimeout(() => {
+      icon.style.opacity = 0;
+    }, 2000);
+  }
+
+  
   const toggleVideo = async () => {
     try {
       if (video.paused || video.ended) {
         await video.play();
+        showVideoIcon("play");
       } else {
         video.pause();
+        showVideoIcon("pause");
       }
     } catch (err) {
-      
-      console.warn("toggleVideo: no se pudo reproducir/pausar:", err);
+      console.warn("toggleVideo failed:", err);
     }
   };
 
-  
   video.addEventListener("click", (e) => {
     e.stopPropagation();
     toggleVideo();
   });
 
- 
   hero.addEventListener("click", (e) => {
-   
     if (e.target.closest("a, button, input, textarea, select, .prev, .next, .dot, .add-to-cart")) return;
-    
     if (e.target.closest(".about, .info-box, .slideshow-container, .services-container")) return;
     toggleVideo();
-  });
-
-  
-  video.addEventListener("ended", () => {
-    
-    video.currentTime = 0;
-    video.play().catch(()=>{});
   });
 });
 
@@ -647,14 +652,14 @@ document.addEventListener("DOMContentLoaded", () => {
   
   acceptBtn.addEventListener("click", () => {
    
-    const expiresDate = new Date(2025, 10, 21, 11, 10); 
+    const expiresDate = new Date(2025, 10, 21, 11, 40); 
     setCookieChoice("accepted", expiresDate);
     banner.style.display = "none";
   });
 
   denyBtn.addEventListener("click", () => {
     
-    const expiresDate = new Date(2025, 10, 21, 11, 10); 
+    const expiresDate = new Date(2025, 10, 21, 11, 40); 
     setCookieChoice("denied", expiresDate);
     banner.style.display = "none";
   });
