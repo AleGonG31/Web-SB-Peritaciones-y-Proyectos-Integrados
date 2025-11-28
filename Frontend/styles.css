@@ -261,7 +261,8 @@ section h2 {
 
 
 .about {
-    background-color: rgba(255, 255, 255, 0.9);
+    background: #b5b5b5;
+    background: linear-gradient(90deg, rgba(181, 181, 181, 1) 0%, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 1) 95%, rgba(181, 181, 181, 1) 100%);
     padding: 1.5rem 2rem;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgb(0, 0, 0);
@@ -276,7 +277,8 @@ section h2 {
 }
 
 .info-box {
-    background-color: rgba(255, 255, 255, 0.9);
+    background: #b5b5b5;
+    background: linear-gradient(90deg, rgba(181, 181, 181, 1) 0%, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 1) 95%, rgba(181, 181, 181, 1) 100%);
     padding: 1.5rem 2rem;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgb(0, 0, 0);
