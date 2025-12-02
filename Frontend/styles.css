@@ -960,6 +960,10 @@ input[type="submit"]:active {
   color: #333;
 }
 
+.link-visited {
+    color: purple !important;
+}
+
 
 @keyframes fadeIn {
   from { opacity: 0; }

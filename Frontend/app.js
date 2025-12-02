@@ -493,6 +493,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeX = document.querySelector(".close-popup");
   const closeBtn = document.getElementById("close-cookies-popup");
 
+  if (cookiesLink) {
+    cookiesLink.addEventListener("click", () => {
+        cookiesLink.classList.add("link-visited");
+    });
+}
+
   
   if (cookiesLink && popup) {
     cookiesLink.addEventListener("click", () => {
@@ -519,6 +525,12 @@ const privacyPopup = document.getElementById("privacy-popup");
 const privacyLink = document.getElementById("privacy-link");
 const closePrivacyX = document.getElementById("close-privacy");
 const closePrivacyBottom = document.getElementById("close-privacy-bottom");
+
+if (privacyLink) {
+    privacyLink.addEventListener("click", () => {
+        privacyLink.classList.add("link-visited");
+    });
+}
 
 if (privacyLink && privacyPopup) {
   const showPrivacy = () => {
