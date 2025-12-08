@@ -664,14 +664,14 @@ document.addEventListener("DOMContentLoaded", () => {
   
   acceptBtn.addEventListener("click", () => {
    
-    const expiresDate = new Date(2025, 11, 5, 16, 30); 
+    const expiresDate = new Date(2025, 11, 31, 23, 59); 
     setCookieChoice("accepted", expiresDate);
     banner.style.display = "none";
   });
 
   denyBtn.addEventListener("click", () => {
     
-    const expiresDate = new Date(2025, 11, 5, 16, 30); 
+    const expiresDate = new Date(2025, 11, 31, 23, 59); 
     setCookieChoice("denied", expiresDate);
     banner.style.display = "none";
   });
